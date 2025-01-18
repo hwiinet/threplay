@@ -21,6 +21,7 @@ The data that the `replay` struct holds currently is:
 - `score` (the player's score)
 - `character` (reimu, marisa)*
 - `rank` (easy, lunatic, etc.)
+- `stage` (the stage that the player made it to)
 
 *: the character value might be something like ReimuA or MarisaC. The letter at the end corresponds to which weapon you selected.
 
