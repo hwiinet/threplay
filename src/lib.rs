@@ -1,6 +1,6 @@
 mod replay;
 
-pub use replay::Replay;
+pub use replay::{Replay, read_replay};
 
 #[cfg(test)]
 mod tests {
