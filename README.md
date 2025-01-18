@@ -29,12 +29,12 @@ An important thing to note is that, if you're reading directly from a replay fil
 This is the code I use to read the files, and it seems to work well:
 
 ```rust
-       let mut file = File::open("th11_10.rpy").unwrap();
-        let mut file_contents = Vec::new();
-        file.read_to_end(&mut file_contents).unwrap();
-    
-        let (decoded, _, _) = encoding_rs::WINDOWS_1252.decode(&file_contents);
-        let decoded_str = decoded.to_string();
+let mut file = File::open("th11_10.rpy").unwrap();
+let mut file_contents = Vec::new();
+file.read_to_end(&mut file_contents).unwrap();
+
+let (decoded, _, _) = encoding_rs::WINDOWS_1252.decode(&file_contents);
+let decoded_str = decoded.to_string();
 ```
 
 I hope you enjoy using `threplay`, and if you're interested, please do contribute by looking out for errors or bugs, or helping out with implementing new Touhou replay versions. Some Touhou games use the same formats, so we won't need to add a case for each version.
