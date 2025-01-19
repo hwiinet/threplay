@@ -4,6 +4,7 @@ pub struct Replay {
     pub name: String,
     pub rank: String,
     pub stage: u64,
+    pub date: String,
 }
 
 #[allow(dead_code)]
@@ -22,6 +23,10 @@ pub fn read_replay(replay: &str, touhou_version: u32) -> Replay {
                         .map(extract_last_word).unwrap();
         let stage = lines.iter().find(|&&line| line.starts_with("Stage"))
                          .map(|line| line.split_whitespace().last().unwrap().parse::<u64>().unwrap()).unwrap();
+        let date = lines.iter()
+                        .find(|&&line| line.starts_with("Date"))
+                        .map(|line| line.splitn(2, ' ').skip(1).collect::<String>())
+                        .unwrap();
 
         Replay {
             score,
@@ -29,6 +34,7 @@ pub fn read_replay(replay: &str, touhou_version: u32) -> Replay {
             name,
             rank,
             stage,
+            date,
         }
     } else {
         panic!("Unsupported Touhou version");

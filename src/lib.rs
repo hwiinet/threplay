@@ -18,7 +18,7 @@ mod tests {
         let decoded_str = decoded.to_string();
     
         let replay = replay::read_replay(&decoded_str, 11);
-        println!("{}'s score was {} while playing with {}. Rank: {}. They made it to stage {}",
-        replay.name, replay.score, replay.character, replay.rank, replay.stage);
+        println!("On {}, {}'s score was {} while playing with {}. Rank: {}. They made it to stage {}",
+        replay.date, replay.name, replay.score, replay.character, replay.rank, replay.stage);
     }
 }
